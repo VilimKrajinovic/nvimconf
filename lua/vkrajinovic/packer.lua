@@ -13,6 +13,9 @@ return require('packer').startup(function(use)
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
 
+    use('nvim-tree/nvim-web-devicons')
+    use('folke/trouble.nvim')
+
 	use({
 		'rose-pine/neovim',
 		as = 'rose-pine',
@@ -21,6 +24,23 @@ return require('packer').startup(function(use)
 		end
 	})
 
+    use('mfussenegger/nvim-dap')
+    use{
+        'leoluz/nvim-dap-go',
+        ft = "go",
+        dependencies = "mfussenegger/nvim-dap",
+        config = function(_, opts)
+            require("dap-go").setup(opts)
+        end
+    }
+
+    use {
+        'creativenull/efmls-configs-nvim',
+        tag = 'v1.*', -- tag is optional, but recommended
+        requires = { 'neovim/nvim-lspconfig' }
+    }
+
+    use("ray-x/lsp_signature.nvim")
 	use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
 	use('nvim-treesitter/playground')
 	use('theprimeagen/harpoon')
@@ -29,7 +49,6 @@ return require('packer').startup(function(use)
 	use('tpope/vim-dispatch')
 	use('clojure-vim/vim-jack-in')
 	use('radenling/vim-dispatch-neovim')
-	use('Olical/conjure')
     use('hiphish/rainbow-delimiters.nvim')
 
 	use {

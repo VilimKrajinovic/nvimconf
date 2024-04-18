@@ -17,17 +17,65 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
+local lsp_fmt_group = vim.api.nvim_create_augroup('LspFormattingGroup', {})
+vim.api.nvim_create_autocmd('BufWritePost', {
+  group = lsp_fmt_group,
+  callback = function(ev)
+    local efm = vim.lsp.get_active_clients({ name = 'efm', bufnr = ev.buf })
+
+    if vim.tbl_isempty(efm) then
+      return
+    end
+
+    vim.lsp.buf.format({ name = 'efm' })
+  end,
+})
+
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'clojure_lsp'},
+  ensure_installed = {'clojure_lsp', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
+    gopls = function()
+      require'lspconfig'.gopls.setup({
+          cmd = {"gopls"},
+          filetypes = {"go", "gomod", "gowork", "gotmpl"},
+          root_dir = require'lspconfig/util'.root_pattern("go.work", "go.mod", ".git"),
+          settings = {
+              gopls = {
+                completeUnimported = true,
+                usePlaceholders = true,
+                analyses = {unusedparams = true}
+              }
+        }
+      })
+    end
   }
 })
+
+require('efmls-configs.defaults').languages()
+require('efmls-configs.formatters.gofmt')
+require'lspconfig'.efm.setup({
+    init_options = {documentFormatting = true},
+    settings = {
+        rootMarkers = {".git/", "go.mod"},
+        languages = {
+            lua = {
+                {formatCommand = "stylua", formatStdin = true}
+            },
+            go = {
+                {formatCommand = "gofmt"}
+            }
+        }
+    },
+    filetypes = {'go', 'lua'}
+})
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -42,9 +90,10 @@ cmp.setup({
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<S-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<S-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<S-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<S-Space>'] = cmp.mapping.complete(),
   }),
 })
+
