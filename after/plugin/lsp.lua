@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'clojure_lsp', 'gopls'},
+  ensure_installed = {'clojure_lsp', 'gopls', 'rust_analyzer'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -73,7 +73,7 @@ require'lspconfig'.efm.setup({
             }
         }
     },
-    filetypes = {'go', 'lua'}
+    filetypes = {'go', 'lua', 'clojure', 'clj', 'edn'}
 })
 
 

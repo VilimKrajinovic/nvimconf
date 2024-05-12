@@ -47,7 +47,11 @@ return require('packer').startup(function(use)
 	use('mbbill/undotree')
 	use('tpope/vim-fugitive')
 	use('tpope/vim-dispatch')
+    -- Clojure
+    use('tpope/vim-fireplace')
 	use('clojure-vim/vim-jack-in')
+    use('venantius/vim-cljfmt')
+    --
 	use('radenling/vim-dispatch-neovim')
     use('hiphish/rainbow-delimiters.nvim')
 

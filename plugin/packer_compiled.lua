@@ -84,10 +84,10 @@ _G.packer_plugins = {
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  conjure = {
+  ["efmls-configs-nvim"] = {
     loaded = true,
-    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/conjure",
-    url = "https://github.com/Olical/conjure"
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/efmls-configs-nvim",
+    url = "https://github.com/creativenull/efmls-configs-nvim"
   },
   harpoon = {
     loaded = true,
@@ -98,6 +98,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
     url = "https://github.com/VonHeikemen/lsp-zero.nvim"
+  },
+  ["lsp_signature.nvim"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
+    url = "https://github.com/ray-x/lsp_signature.nvim"
   },
   ["mason-lspconfig.nvim"] = {
     loaded = true,
@@ -114,6 +119,19 @@ _G.packer_plugins = {
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    config = { "\27LJ\2\n8\0\2\5\0\3\0\a6\2\0\0'\4\1\0B\2\2\0029\2\2\2\18\4\1\0B\2\2\1K\0\1\0\nsetup\vdap-go\frequire\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/opt/nvim-dap-go",
+    url = "https://github.com/leoluz/nvim-dap-go"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -123,6 +141,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
+  ["nvim-web-devicons"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
+    url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
   ["packer.nvim"] = {
     loaded = true,
@@ -155,10 +178,20 @@ _G.packer_plugins = {
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["trouble.nvim"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/trouble.nvim",
+    url = "https://github.com/folke/trouble.nvim"
+  },
   undotree = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-cljfmt"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/vim-cljfmt",
+    url = "https://github.com/venantius/vim-cljfmt"
   },
   ["vim-dispatch"] = {
     loaded = true,
@@ -169,6 +202,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/vim-dispatch-neovim",
     url = "https://github.com/radenling/vim-dispatch-neovim"
+  },
+  ["vim-fireplace"] = {
+    loaded = true,
+    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/vim-fireplace",
+    url = "https://github.com/tpope/vim-fireplace"
   },
   ["vim-fugitive"] = {
     loaded = true,
@@ -187,6 +225,13 @@ time([[Defining packer_plugins]], false)
 time([[Config for rose-pine]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
 time([[Config for rose-pine]], false)
+vim.cmd [[augroup packer_load_aucmds]]
+vim.cmd [[au!]]
+  -- Filetype lazy-loads
+time([[Defining lazy-load filetype autocommands]], true)
+vim.cmd [[au FileType go ++once lua require("packer.load")({'nvim-dap-go'}, { ft = "go" }, _G.packer_plugins)]]
+time([[Defining lazy-load filetype autocommands]], false)
+vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
