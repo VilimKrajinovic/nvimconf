@@ -15,6 +15,8 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
   vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+
+  vim.keymap.set("n", "<leader>lf", function() vim.lsp.buf.format() end, opts)
 end)
 
 local lsp_fmt_group = vim.api.nvim_create_augroup('LspFormattingGroup', {})
@@ -42,7 +44,14 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
     clojure_lsp = function ()
-        require'lspconfig'.clojure_lsp.setup({})
+        require'lspconfig'.clojure_lsp.setup({
+            cmd = {"clojure-lsp"},
+            filetypes = {"clojure", "edn"},
+            root_dir = require'lspconfig/util'.root_pattern("deps.edn", "project.clj", "build.boot", "shadow-cljs.edn", ".git", "bb.edn"),
+            settings =  {
+
+            }
+        })
     end,
     gopls = function()
       require'lspconfig'.gopls.setup({

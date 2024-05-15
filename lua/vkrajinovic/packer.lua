@@ -24,6 +24,14 @@ return require('packer').startup(function(use)
 		end
 	})
 
+	use({
+		'folke/tokyonight.nvim',
+		as = 'tokyonight',
+		config = function()
+			vim.cmd('colorscheme tokyonight-moon')
+		end
+	})
+
     use('mfussenegger/nvim-dap')
     use{
         'leoluz/nvim-dap-go',
