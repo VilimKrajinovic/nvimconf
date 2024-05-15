@@ -203,11 +203,6 @@ _G.packer_plugins = {
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-cljfmt"] = {
-    loaded = true,
-    path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/vim-cljfmt",
-    url = "https://github.com/venantius/vim-cljfmt"
-  },
   ["vim-dispatch"] = {
     loaded = true,
     path = "/Users/vilimkrajinovic/.local/share/nvim/site/pack/packer/start/vim-dispatch",

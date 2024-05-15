@@ -41,6 +41,9 @@ require('mason-lspconfig').setup({
       local lua_opts = lsp_zero.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
+    clojure_lsp = function ()
+        require'lspconfig'.clojure_lsp.setup({})
+    end,
     gopls = function()
       require'lspconfig'.gopls.setup({
           cmd = {"gopls"},
@@ -86,7 +89,7 @@ cmp.setup({
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
     {name = 'luasnip', keyword_length = 2},
-    {name = 'buffer', keyword_length = 3},
+    {name = 'buffer', keyword_length = 1},
   },
   formatting = lsp_zero.cmp_format(),
   mapping = cmp.mapping.preset.insert({

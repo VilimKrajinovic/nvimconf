@@ -50,7 +50,7 @@ return require('packer').startup(function(use)
     -- Clojure
     use('tpope/vim-fireplace')
 	use('clojure-vim/vim-jack-in')
-    use('venantius/vim-cljfmt')
+    --use('venantius/vim-cljfmt')
     --
 	use('radenling/vim-dispatch-neovim')
     use('hiphish/rainbow-delimiters.nvim')
