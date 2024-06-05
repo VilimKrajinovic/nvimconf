@@ -16,9 +16,12 @@ return {
         version = 'v1.x.x', -- version is optional, but recommended
         dependencies = { 'neovim/nvim-lspconfig' }
     },
+-- Packer
 
+    'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
     'echasnovski/mini.statusline',
+	'echasnovski/mini.surround',
 
     'ray-x/lsp_signature.nvim',
     'theprimeagen/harpoon',
