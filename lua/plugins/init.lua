@@ -16,8 +16,6 @@ return {
         version = 'v1.x.x', -- version is optional, but recommended
         dependencies = { 'neovim/nvim-lspconfig' }
     },
--- Packer
-
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
     'echasnovski/mini.statusline',
@@ -30,6 +28,7 @@ return {
     'mbbill/undotree',
     'tpope/vim-fugitive',
     'tpope/vim-dispatch',
+
     -- Clojure
     'tpope/vim-fireplace',
     'clojure-vim/vim-jack-in',
