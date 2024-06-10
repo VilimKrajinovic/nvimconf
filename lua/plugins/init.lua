@@ -16,6 +16,7 @@ return {
         version = 'v1.x.x', -- version is optional, but recommended
         dependencies = { 'neovim/nvim-lspconfig' }
     },
+    'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
     'echasnovski/mini.statusline',
