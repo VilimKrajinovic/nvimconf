@@ -26,6 +26,7 @@ return {
             require('lsp-progress').setup()
         end
     },
+    'rebelot/kanagawa.nvim',
     'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
