@@ -16,11 +16,20 @@ return {
         version = 'v1.x.x', -- version is optional, but recommended
         dependencies = { 'neovim/nvim-lspconfig' }
     },
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = { 'nvim-tree/nvim-web-devicons' }
+    },
+    {
+        'linrongbin16/lsp-progress.nvim',
+        config = function()
+            require('lsp-progress').setup()
+        end
+    },
     'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
-    'echasnovski/mini.statusline',
-	'echasnovski/mini.surround',
+    'echasnovski/mini.surround',
 
     'ray-x/lsp_signature.nvim',
     'theprimeagen/harpoon',

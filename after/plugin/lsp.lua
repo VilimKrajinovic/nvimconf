@@ -88,6 +88,8 @@ require'lspconfig'.efm.setup({
     filetypes = {'go', 'lua', 'clojure', 'clj', 'edn'}
 })
 
+require'lspconfig'.gdscript.setup{ flags = {debounce_text_changes = 150,}}
+
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
