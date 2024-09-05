@@ -4,9 +4,8 @@ require("lualine").setup({
       function()
         -- invoke `progress` here.
         return require('lsp-progress').progress()
-      end,
-    },
-    ...
+      end
+    }
   }
 })
 
