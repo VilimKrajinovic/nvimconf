@@ -26,11 +26,16 @@ return {
             require('lsp-progress').setup()
         end
     },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
+    { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
     'rebelot/kanagawa.nvim',
     'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
     'echasnovski/mini.surround',
+
+    'windwp/nvim-ts-autotag',
 
     'ray-x/lsp_signature.nvim',
     'theprimeagen/harpoon',
