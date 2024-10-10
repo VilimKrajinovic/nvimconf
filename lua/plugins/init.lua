@@ -13,7 +13,7 @@ return {
 
     {
         'creativenull/efmls-configs-nvim',
-        version = 'v1.x.x', -- version is optional, but recommended
+        version = 'v1.7.0', -- version is optional, but recommended
         dependencies = { 'neovim/nvim-lspconfig' }
     },
     {
@@ -25,6 +25,15 @@ return {
         config = function()
             require('lsp-progress').setup()
         end
+    },
+    'saadparwaiz1/cmp_luasnip',
+    {
+        "L3MON4D3/LuaSnip",
+        lazy = false,
+        -- follow latest release.
+        version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+        -- install jsregexp (optional!).
+        build = "make install_jsregexp"
     },
     {
         "folke/which-key.nvim",
@@ -44,11 +53,13 @@ return {
             },
         },
     },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
     {'ggandor/leap.nvim'},
     {'akinsho/git-conflict.nvim', version = "*", config = true},
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
     { "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
     { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
+    'aliqyan-21/darkvoid.nvim',
     'rebelot/kanagawa.nvim',
     'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',

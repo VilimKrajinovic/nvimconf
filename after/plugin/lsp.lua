@@ -118,8 +118,14 @@ cmp.setup({
         {name = 'path'},
         {name = 'nvim_lsp'},
         {name = 'nvim_lua'},
+        {name = 'nvim_cmp'},
         {name = 'luasnip', keyword_length = 2},
         {name = 'buffer', keyword_length = 1},
+    },
+    snippet = {
+        expand = function(args)
+            require('luasnip').lsp_expand(args.body)
+        end,
     },
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({
