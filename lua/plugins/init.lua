@@ -10,6 +10,21 @@ return {
             require("dap-go").setup(opts)
         end
     },
+    {
+        "julienvincent/nvim-paredit",
+        config = function()
+            require("nvim-paredit").setup()
+        end
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        build = "cd app && yarn install",
+        init = function()
+            vim.g.mkdp_filetypes = { "markdown" }
+        end,
+        ft = { "markdown" },
+    },
 
     {
         'creativenull/efmls-configs-nvim',
@@ -53,18 +68,20 @@ return {
             },
         },
     },
-    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true},
-    {'ggandor/leap.nvim'},
-    {'akinsho/git-conflict.nvim', version = "*", config = true},
-    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-    { "scottmckendry/cyberdream.nvim", lazy = false, priority = 1000 },
-    { "bluz71/vim-nightfly-colors", name = "nightfly", lazy = false, priority = 1000 },
+    { "R-nvim/R.nvim",                 lazy = false,        version = "~0.1.0" },
+    { "ellisonleao/gruvbox.nvim",      priority = 1000,     config = true },
+    { 'ggandor/leap.nvim' },
+    { 'akinsho/git-conflict.nvim',     version = "*",       config = true },
+    { "catppuccin/nvim",               name = "catppuccin", priority = 1000 },
+    { "scottmckendry/cyberdream.nvim", lazy = false,        priority = 1000 },
+    { "bluz71/vim-nightfly-colors",    name = "nightfly",   lazy = false,      priority = 1000 },
     'aliqyan-21/darkvoid.nvim',
     'rebelot/kanagawa.nvim',
     'xiyaowong/transparent.nvim',
     'sindrets/diffview.nvim',
     'echasnovski/mini.nvim',
     'echasnovski/mini.surround',
+    'RRethy/vim-illuminate',
 
     'windwp/nvim-ts-autotag',
 
@@ -92,7 +109,7 @@ return {
             local elixirls = require("elixir.elixirls")
 
             elixir.setup {
-                nextls = {enable = false},
+                nextls = { enable = false },
                 elixirls = {
                     enable = true,
                     settings = elixirls.settings {
