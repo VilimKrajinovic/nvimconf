@@ -16,6 +16,14 @@ return {
             require("nvim-paredit").setup()
         end
     },
+    {
+        'stevearc/oil.nvim',
+        ---@module 'oil'
+        ---@type oil.SetupOpts
+        opts = {},
+        -- Optional dependencies
+        dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    },
     -- install without yarn or npm
     {
         "iamcco/markdown-preview.nvim",
@@ -85,6 +93,7 @@ return {
     'ray-x/lsp_signature.nvim',
     'theprimeagen/harpoon',
     'nvim-treesitter/nvim-treesitter',
+    {'nvim-treesitter/nvim-treesitter-textobjects', dependencies = {'nvim-treesitter/nvim-treesitter'}},
     'nvim-treesitter/playground',
     'mbbill/undotree',
     'tpope/vim-fugitive',
