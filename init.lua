@@ -1,5 +1,2 @@
-vim.g.maplocalleader = " "
-vim.keymap.set("i", "jj", "<Esc>", { noremap = true })
-vim.g.have_nerd_font = true
-require("vkrajinovic")
-
+-- bootstrap lazy.nvim, LazyVim and your plugins
+require("config.lazy")
