@@ -6,6 +6,17 @@ return {
     opts = {
       scroll = { enabled = false },
       animate = { enabled = false },
+      explorer = {
+        replace_netrw = true,
+      },
+      picker = {
+        hidden = true,
+        ignored = true,
+        files = {
+          hidden = true,
+          ignored = true,
+        },
+      },
       dashboard = {
         formats = {
           key = function(item)
