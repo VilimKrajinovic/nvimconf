@@ -2,6 +2,20 @@ return {
   { "rebelot/kanagawa.nvim" },
   { "slugbyte/lackluster.nvim" },
   { "olivercederborg/poimandres.nvim" },
+  { "morhetz/gruvbox" },
+  { "alljokecake/naysayer-theme.nvim", as = "naysayer" },
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require("everforest").setup({
+        -- Your config here
+      })
+    end,
+  },
   {
     "folke/tokyonight.nvim",
     opts = {
@@ -85,7 +99,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "everforest",
     },
   },
 }
