@@ -10,3 +10,13 @@ vim.keymap.set("i", "jj", "<Esc>")
 vim.keymap.set("n", "s", function()
   leap.leap({ target_windows = { vim.api.nvim_get_current_win() } })
 end)
+
+local cmake = require('cmake-tools');
+
+vim.keymap.set("n", "<leader>cpb", function()
+  cmake.build({}, {});
+end, {desc = "Clang build C++"})
+
+vim.keymap.set("n", "<leader>cpr", function()
+  cmake.run({}, {})
+end, {desc = "Clang run C++"})
