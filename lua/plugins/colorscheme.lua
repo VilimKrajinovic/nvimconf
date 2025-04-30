@@ -12,7 +12,10 @@ return {
     -- Optional; default configuration will be used if setup isn't called.
     config = function()
       require("everforest").setup({
-        -- Your config here
+        Background = "soft",
+        transparent_background_level = 1,
+        italics = true,
+        disable_italic_comments = false,
       })
     end,
   },

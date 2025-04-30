@@ -2,7 +2,7 @@ return {
   "xiyaowong/transparent.nvim",
   {
     "folke/snacks.nvim",
-    ---@type snacks.Config
+    lazy = false,
     opts = {
       scroll = { enabled = false },
       animate = { enabled = false },
@@ -47,14 +47,6 @@ return {
       "neovim/nvim-lspconfig",
     },
     opts = {},
-  },
-  {
-    "olimorris/codecompanion.nvim",
-    config = true,
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
   },
   {
     "saghen/blink.cmp",
