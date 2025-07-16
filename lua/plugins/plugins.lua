@@ -16,6 +16,9 @@ return {
           hidden = true,
           ignored = true,
         },
+        exclude = {
+          "node_modules"
+        }
       },
       dashboard = {
         formats = {

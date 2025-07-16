@@ -6,3 +6,4 @@ vim.g.autoformat = false
 vim.g.snacks_animate = false
 
 -- vim.g.root_spec = {"cwd"} -- makes search always be from cwd
+

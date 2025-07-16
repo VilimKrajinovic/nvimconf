@@ -51,3 +51,11 @@ require("lazy").setup({
     },
   },
 })
+
+vim.api.nvim_create_user_command("YankReference", function()
+  local filepath = vim.fn.expand("%:.")
+  local line_number = vim.fn.line(".")
+  local result = filepath .. ":" .. line_number
+  vim.fn.setreg("+", result)
+  vim.notify("Yanked: " .. result)
+end, { desc = "Yank file path with line number" })
