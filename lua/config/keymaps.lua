@@ -5,6 +5,9 @@
 local leap = require("leap")
 
 vim.keymap.set("i", "jj", "<Esc>")
+vim.keymap.set("t", "<Esc>", '<C-\\><C-n>') -- terminal esc to go to normal mode
+vim.keymap.set("t", "jj", '<C-\\><C-n>') -- terminal jj to go to normal mode
+
 
 -- Bidirectional leap
 vim.keymap.set("n", "s", function()
@@ -20,3 +23,5 @@ end, {desc = "Clang build C++"})
 vim.keymap.set("n", "<leader>cpr", function()
   cmake.run({}, {})
 end, {desc = "Clang run C++"})
+
+

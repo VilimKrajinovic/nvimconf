@@ -3,7 +3,10 @@ return {
   { "slugbyte/lackluster.nvim" },
   { "olivercederborg/poimandres.nvim" },
   { "morhetz/gruvbox" },
-  { "alljokecake/naysayer-theme.nvim", as = "naysayer" },
+  {
+    "whizikxd/naysayer-colors.nvim",
+    lazy = false,
+  },
   {
     "neanias/everforest-nvim",
     version = false,
