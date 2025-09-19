@@ -4,8 +4,12 @@ return {
   { "olivercederborg/poimandres.nvim" },
   { "morhetz/gruvbox" },
   {
-    "whizikxd/naysayer-colors.nvim",
+    "RostislavArts/naysayer.nvim",
+    priority = 1000,
     lazy = false,
+    config = function()
+      vim.cmd.colorscheme("naysayer")
+    end,
   },
   {
     "neanias/everforest-nvim",
@@ -105,7 +109,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "naysayer",
     },
   },
 }
